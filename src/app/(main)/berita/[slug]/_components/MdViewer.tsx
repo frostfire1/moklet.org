@@ -7,6 +7,7 @@ import { ClassAttributes, HTMLAttributes, ImgHTMLAttributes } from "react";
 
 import "../github-dark.min.css";
 import Image from "@/app/_components/global/Image";
+import cn from "@/lib/clsx";
 
 interface MdViewerProps {
   markdown: string;
@@ -64,30 +65,27 @@ const CustomCode = ({
 
 const CustomImage = ({
   node,
+  height,
+  width,
+  alt,
+  src,
   ...props
-}: ClassAttributes<HTMLImageElement> &
+}: ClassAttributes<HTMLElement> &
   ImgHTMLAttributes<HTMLImageElement> &
   ExtraProps) => {
-  const height =
-    typeof props.height === "number"
-      ? props.height
-      : props.height !== undefined
-        ? parseInt(props.height)
-        : undefined;
-  const width =
-    typeof props.width === "number"
-      ? props.width
-      : props.width !== undefined
-        ? parseInt(props.width)
-        : undefined;
+  const parsedHeight =
+    typeof height === "number" ? height : height ? parseInt(height) : 600;
+  const parsedWidth =
+    typeof width === "number" ? width : width ? parseInt(width) : 600;
+
   return (
     <Image
-      alt="Illustrasi Artikel"
-      className="w-full"
-      src={props.src!}
+      alt={alt || "Illustrasi Artikel"}
+      className={cn(!height || !width ? "w-full" : "")}
+      src={src!}
+      height={parsedHeight}
+      width={parsedWidth}
       {...props}
-      height={height || 600}
-      width={width || 600}
     />
   );
 };
