@@ -14,7 +14,6 @@ export default function RelatedNewsFigure({
         <Image
           src={post.thumbnail}
           alt="wao"
-          unoptimized
           height={200}
           width={372}
           className="h-full w-full object-cover rounded-[20px]"
@@ -45,7 +44,6 @@ export default function RelatedNewsFigure({
             <Image
               src={post.user.user_pic}
               alt={post.user.name + "'s Pfp"}
-              unoptimized
               height={28}
               width={28}
               className="h-7 w-7 object-cover rounded-full"

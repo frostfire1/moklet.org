@@ -99,7 +99,6 @@ export default async function Post({
                   <Image
                     src={post?.user.user_pic}
                     alt={post?.user.name + "'s Pfp"}
-                    unoptimized
                     height={28}
                     width={28}
                     className="h-7 w-7 object-cover rounded-full"
@@ -121,7 +120,6 @@ export default async function Post({
                 width={768}
                 height={450}
                 className="w-full h-full rounded-[20px]"
-                unoptimized
               />
             </div>
             <div className="w-full">
