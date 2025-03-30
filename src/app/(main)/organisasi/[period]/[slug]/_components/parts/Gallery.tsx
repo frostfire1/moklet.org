@@ -31,7 +31,6 @@ export default function OrgGallery({
               alt="Image"
               width={587}
               height={407}
-              unoptimized
               className="w-full h-full"
             />
           </div>

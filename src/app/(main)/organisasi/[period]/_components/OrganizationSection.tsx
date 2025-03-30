@@ -39,7 +39,6 @@ export default function OrganizationSection({
                   src={organisasi.logo}
                   width={62}
                   height={62}
-                  unoptimized
                   className="w-[62px] h-[62px] object-cover"
                 />
                 <div className="flex flex-col gap-[6px] w-[80%]">
