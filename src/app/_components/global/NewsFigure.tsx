@@ -25,7 +25,6 @@ export function NewsFigure({ post }: Readonly<{ post: PostWithTagsAndUser }>) {
         <Image
           src={post.thumbnail}
           alt={post.slug}
-          unoptimized
           height={200}
           width={372}
           className="h-full w-full object-cover rounded-[20px]"
@@ -56,7 +55,6 @@ export function NewsFigure({ post }: Readonly<{ post: PostWithTagsAndUser }>) {
             <Image
               src={post.user.user_pic}
               alt={post.user.name + "'s Pfp"}
-              unoptimized
               height={28}
               width={28}
               className="h-7 w-7 object-cover rounded-full"

@@ -19,7 +19,6 @@ export default function PersonData({
         width={44}
         height={44}
         className="h-full max-h-[44px] w-full max-w-[44px] rounded-full"
-        unoptimized
       />
       <div className="flex flex-col">
         <span className="text-[18px] sm:text-xl font-bold text-primary-400">

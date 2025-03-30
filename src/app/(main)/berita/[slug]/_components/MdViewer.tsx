@@ -3,9 +3,11 @@ import rehypeHighlight from "rehype-highlight";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import remarkRehype from "remark-rehype";
-import { ClassAttributes, HTMLAttributes } from "react";
+import { ClassAttributes, HTMLAttributes, ImgHTMLAttributes } from "react";
 
 import "../github-dark.min.css";
+import Image from "@/app/_components/global/Image";
+import cn from "@/lib/clsx";
 
 interface MdViewerProps {
   markdown: string;
@@ -61,6 +63,33 @@ const CustomCode = ({
   />
 );
 
+const CustomImage = ({
+  node,
+  height,
+  width,
+  alt,
+  src,
+  ...props
+}: ClassAttributes<HTMLElement> &
+  ImgHTMLAttributes<HTMLImageElement> &
+  ExtraProps) => {
+  const parsedHeight =
+    typeof height === "number" ? height : height ? parseInt(height) : 600;
+  const parsedWidth =
+    typeof width === "number" ? width : width ? parseInt(width) : 600;
+
+  return (
+    <Image
+      alt={alt || "Illustrasi Artikel"}
+      className={cn(!height || !width ? "w-full" : "")}
+      src={src!}
+      height={parsedHeight}
+      width={parsedWidth}
+      {...props}
+    />
+  );
+};
+
 export function MdViewer({ markdown }: Readonly<MdViewerProps>) {
   return (
     <Markdown
@@ -69,6 +98,7 @@ export function MdViewer({ markdown }: Readonly<MdViewerProps>) {
         ol: CustomOl,
         pre: CustomPre,
         code: CustomCode,
+        img: CustomImage,
       }}
       className="prose"
       rehypePlugins={[rehypeRaw, rehypeHighlight]}

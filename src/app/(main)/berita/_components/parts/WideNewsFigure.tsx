@@ -16,7 +16,6 @@ export function WideNewsFigure({
           width={140}
           height={140}
           className="h-[140px] w-[140px] rounded-2xl object-cover"
-          unoptimized
         />
       </div>
       <div className="w-full flex flex-col gap-0 md:gap-[52px] text-wrap">
@@ -37,7 +36,6 @@ export function WideNewsFigure({
             <Image
               src={post.user.user_pic}
               alt={post.user.name + "'s Pfp"}
-              unoptimized
               height={28}
               width={28}
               className="h-7 w-7 object-cover rounded-full"
