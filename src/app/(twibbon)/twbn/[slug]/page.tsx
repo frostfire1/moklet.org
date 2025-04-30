@@ -22,6 +22,6 @@ export default async function TwibbonRedirectPage({
         ...(twibbon.caption
           ? { caption: encodeURIComponent(twibbon.caption) }
           : {}),
-      }).toString()
+      }).toString(),
   );
 }
