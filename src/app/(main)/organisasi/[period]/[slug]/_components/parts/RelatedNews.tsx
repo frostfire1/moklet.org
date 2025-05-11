@@ -30,7 +30,7 @@ export default function RelatedNews({
           </Link>
         </div>
         <div className="w-full overflow-x-none">
-          <div className="flex flex-col md:flex-row w-full justify-between gap-[36px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full justify-start gap-[36px]">
             {data.length !== 0 ? (
               data.map((post) => <NewsFigure key={post.id} post={post} />)
             ) : (
